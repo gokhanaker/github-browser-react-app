@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.navigation-bar {
+  padding: 0px;
+}
+
+.col-md-4 {
+  border-style: groove;
+  margin-top: 10px;
+}
+
+.github-avatar-img {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.user-info {
+  margin-top: 10px;
+  width: 80px;
+  height: 60px;
+}
+
+.login-name {
+  margin-top: 10px;
+}
