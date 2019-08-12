@@ -1,29 +1,65 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.navigation-bar {
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0px;
   padding: 0px;
 }
 
-.col-md-4 {
+.row {
+  padding: 15px;
+}
+
+#search-user-textbox {
+  width: 20%;
+  margin-left: 40px;
+}
+
+.users-profiles {
   border-style: groove;
   margin-top: 10px;
 }
 
-.github-avatar-img {
-  margin-top: 10px;
+.users-github-img {
+  margin-top: 20px;
   margin-right: 10px;
+  margin-bottom: 20px;
 }
 
-.user-info {
+.users-info {
   margin-top: 10px;
   width: 80px;
   height: 60px;
 }
 
-.login-name {
+.users-login-name {
+  margin-top: 20px;
+}
+
+.user-detail-section {
+  margin-top: 5%;
+  border-style: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.user-detail-img {
+  margin-top: 20px;
+}
+
+.user-detail-text {
+  margin-top: 10px;
+}
+
+.user-detail-icon {
+  margin-right: 5px;
+}
+
+.repository-detail {
+  margin-top: 20px;
+  border: groove;
+}
+
+.repository-detail-text {
   margin-top: 10px;
 }

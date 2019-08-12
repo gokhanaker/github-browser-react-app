@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
 
 class Navigation extends Component {
 
@@ -11,77 +11,63 @@ class Navigation extends Component {
     }
 
     updateSearchedName = (event) => {
-        console.log('event.target.value', event.target.value);
+        // console.log('searched name', event.target.value);
         this.setState({ searchedName: event.target.value });
     }
 
     handleKeyPress = (event) => {
+        // if 'enter' key is pressed in search bar
         if (event.key === 'Enter') {
-            this.searchGithubUsers();
+            this.passSearchedName();
         }
     }
 
-    passSearchedName = () => {
+    // passing props to parent App component
+    passSearchedName = (e) => {
         const { searchedName } = this.state;
 
-        if (this.state.searchedName === '') {
-            console.log('please type something in the search bar');
+        if (searchedName === '') {
+            console.log('please type something in the search bar!!!');
         } else {
             this.props.searchUsers(searchedName);
         }
     }
 
     render() {
-        // ES6 destructuring 
-        const { title, icon } = this.props;
+
+        // ES6 destructuring
+        const { searchedName } = this.state;
 
         return (
-            <div className='container navigation-bar'>
-                <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div className='container'>
+                <nav className='navbar navbar-expand-sm bg-secondary navbar-dark navigation-bar'>
                     <h1>
-                        <i className={icon} />
+                        <i className='fab fa-github-alt' />
                     </h1>
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">{title}</a>
+                    <ul className='navbar-nav'>
+                        <li className='nav-item'>
+                            <a href='/' className='nav-link' >Github Browser</a>
                         </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"></a>
+                        <li className='nav-item active'>
+                            <a href='/' className='nav-link' >Home</a>
                         </li>
                     </ul>
-                    <form className="form-inline" action="">
-                        <input className="form-control mr-sm-2"
-                            type="text"
-                            placeholder="Search Users"
-                            value={this.state.searchedName}
-                            onChange={this.updateSearchedName}
-                            onKeyPress={this.handleKeyPress} />
+                    <input id='search-user-textbox'
+                        className='form-control mr-sm-2'
+                        type='text'
+                        placeholder='Search Users'
+                        value={searchedName}
+                        onChange={this.updateSearchedName}
+                        onKeyPress={this.handleKeyPress} />
 
-                        <button className="btn btn-success"
-                            type="submit"
-                            onClick={this.passSearchedName}>
-                            Search
-                        </button>
-                    </form>
+                    <button className='btn btn-light'
+                        onClick={this.passSearchedName}>
+                        Search
+                    </button>
                 </nav>
-            </div>
+            </div >
         )
     }
-}
-
-// declaring prop types that Navigation component needs
-Navigation.propTypes = {
-    icon: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-};
-
-// setting default props if no props is passed
-Navigation.defaultProps = {
-    icon: 'fab fa-github-alt',
-    title: 'Github Browser'
 }
 
 export default Navigation;
